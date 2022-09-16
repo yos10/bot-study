@@ -15,3 +15,11 @@ reaction_added
 保存
 
 Install App > Reinstall to Workspace
+
+## 参考にしたページ
+
+https://www.youtube.com/watch?v=MusIvEKjqsc&t=400s
+
+https://github.com/cyclic-software/starter-slack-boltjs
+
+https://api.slack.com/start/building/bolt-js
