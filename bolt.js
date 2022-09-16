@@ -1,13 +1,14 @@
 'use strict';
 
-const { App, ExpressReceiver } = require('@slack/bolt');
-const dotenv = require('dotenv');
-dotenv.config();
+require('dotenv').config();
 
-const receiver = new ExpressReceiver({ signingSecret: process.env.SLACK_SIGNING_SECRET });
+const { App, ExpressReceiver } = require('@slack/bolt');
+
+const receiver = new ExpressReceiver({
+  signingSecret: process.env.SLACK_SIGNING_SECRET,
+});
 
 const app = new App({
-  receiver,
   token: process.env.SLACK_BOT_TOKEN,
   signingSecret: process.env.SLACK_SIGNING_SECRET,
   logLevel: 'debug',
@@ -24,6 +25,7 @@ app.message(/^hello$/i, async ({ message, say }) => {
         },
       },
     ],
+    text: `こんにちは <@${message.user}>さん`,
   });
 });
 
@@ -31,7 +33,7 @@ app.event('reaction_added', async ({ event, say }) => {
   console.log({ event });
 
   // bot へのリアクションにだけ反応するように
-  if (event.item_user !== 'U041XR6R4P5') return;
+  if (event.item_user !== 'U0427UV1J5D') return;
 
   await say({
     text: `Thanks for the :${event.reaction}:`,
