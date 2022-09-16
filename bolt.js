@@ -6,8 +6,7 @@ dotenv.config();
 
 const app = new bolt.App({
   token: process.env.SLACK_BOT_TOKEN,
-  appToken: process.env.SLACK_APP_TOKEN,
-  socketMode: true,
+  signingSecret: process.env.SLACK_SIGNING_SECRET,
   logLevel: 'debug',
 });
 
@@ -45,4 +44,9 @@ app.message(/^おみくじ$/, ({ message, say }) => {
   say(text);
 });
 
-app.start();
+(async () => {
+  // Start the app
+  await app.start(process.env.PORT || 3000);
+
+  console.log('⚡️ Bolt app is running!');
+})();
