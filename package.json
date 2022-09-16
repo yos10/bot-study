@@ -1,0 +1,17 @@
+{
+  "name": "bot-study",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "dev": "nodemon bolt.js"
+  },
+  "dependencies": {
+    "@slack/bolt": "^3.12.1",
+    "dotenv": "^16.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
