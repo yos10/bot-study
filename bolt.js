@@ -37,12 +37,12 @@ app.event('reaction_added', async ({ event, say }) => {
   });
 });
 
-app.message(/^おみくじ$/, ({ message, say }) => {
+app.message(/^おみくじ$/, async ({ message, say }) => {
   const lots = ['大吉', '吉', '中吉', '末吉', '凶'];
   const lot = lots[Math.floor(Math.random() * lots.length)];
   const text = `<@${message.user}> 今の運勢は ${lot} です`;
 
-  say(text);
+  await say(text);
 });
 
 (async () => {
