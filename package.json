@@ -1,10 +1,11 @@
 {
   "name": "bot-study",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "bolt.js",
   "license": "MIT",
   "private": true,
   "scripts": {
+    "start": "node bolt.js",
     "dev": "nodemon bolt.js"
   },
   "dependencies": {
