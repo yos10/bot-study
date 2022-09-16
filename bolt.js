@@ -1,10 +1,13 @@
 'use strict';
 
-const bolt = require('@slack/bolt');
+const { App, ExpressReceiver } = require('@slack/bolt');
 const dotenv = require('dotenv');
 dotenv.config();
 
-const app = new bolt.App({
+const receiver = new ExpressReceiver({ signingSecret: process.env.SLACK_SIGNING_SECRET });
+
+const app = new App({
+  receiver,
   token: process.env.SLACK_BOT_TOKEN,
   signingSecret: process.env.SLACK_SIGNING_SECRET,
   logLevel: 'debug',
