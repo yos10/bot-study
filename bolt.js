@@ -2,11 +2,7 @@
 
 require('dotenv').config();
 
-const { App, ExpressReceiver } = require('@slack/bolt');
-
-const receiver = new ExpressReceiver({
-  signingSecret: process.env.SLACK_SIGNING_SECRET,
-});
+const { App } = require('@slack/bolt');
 
 const app = new App({
   token: process.env.SLACK_BOT_TOKEN,
